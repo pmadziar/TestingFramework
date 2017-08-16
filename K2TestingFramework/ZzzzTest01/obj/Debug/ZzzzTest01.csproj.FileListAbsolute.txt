@@ -1,0 +1,15 @@
+C:\code\TestingFramework\K2TestingFramework\ZzzzTest01\bin\Debug\ZzzzTest01.exe.config
+C:\code\TestingFramework\K2TestingFramework\ZzzzTest01\bin\Debug\ZzzzTest01.exe
+C:\code\TestingFramework\K2TestingFramework\ZzzzTest01\bin\Debug\ZzzzTest01.pdb
+C:\code\TestingFramework\K2TestingFramework\ZzzzTest01\bin\Debug\K2.AtonMartin.RLE.Testing.POM.dll
+C:\code\TestingFramework\K2TestingFramework\ZzzzTest01\bin\Debug\K2.Testing.Automated.Framework.dll
+C:\code\TestingFramework\K2TestingFramework\ZzzzTest01\bin\Debug\Newtonsoft.Json.dll
+C:\code\TestingFramework\K2TestingFramework\ZzzzTest01\bin\Debug\WebDriver.dll
+C:\code\TestingFramework\K2TestingFramework\ZzzzTest01\bin\Debug\K2.AtonMartin.RLE.Testing.POM.pdb
+C:\code\TestingFramework\K2TestingFramework\ZzzzTest01\bin\Debug\K2.Testing.Automated.Framework.pdb
+C:\code\TestingFramework\K2TestingFramework\ZzzzTest01\bin\Debug\Newtonsoft.Json.xml
+C:\code\TestingFramework\K2TestingFramework\ZzzzTest01\bin\Debug\WebDriver.xml
+C:\code\TestingFramework\K2TestingFramework\ZzzzTest01\obj\Debug\ZzzzTest01.csprojResolveAssemblyReference.cache
+C:\code\TestingFramework\K2TestingFramework\ZzzzTest01\obj\Debug\ZzzzTest01.exe
+C:\code\TestingFramework\K2TestingFramework\ZzzzTest01\obj\Debug\ZzzzTest01.pdb
+C:\code\TestingFramework\K2TestingFramework\ZzzzTest01\bin\Debug\WebDriver.pdb
