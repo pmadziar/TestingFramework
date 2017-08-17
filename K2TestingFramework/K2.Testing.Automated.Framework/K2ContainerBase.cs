@@ -23,7 +23,8 @@ namespace K2.Testing.Automated.Framework
 
         public IWebElement FindElement(By by)
         {
-            return parent.FindElement(By.CssSelector(cssLocator)).FindElement(by);
+            IWebElement current = parent.FindElement(By.CssSelector(cssLocator));
+            return current.FindElement(by);
         }
         public ReadOnlyCollection<IWebElement> FindElements(By by)
         {

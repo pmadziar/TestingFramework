@@ -27,6 +27,11 @@ namespace K2.Testing.Automated.Framework
                 return !this.FindElement(By.CssSelector("div.grid-body")).Displayed;
             }
         }
+
+        protected IWebElement getToolBarButtonByName(string name)
+        {
+            return this.FindElements(By.CssSelector("div.grid-toolbars a.toolbar-button")).Single(x => x.Text.Trim().Equals(name));
+        }
     }
 
 }
