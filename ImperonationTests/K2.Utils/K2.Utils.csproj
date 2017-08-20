@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F7869E13-F787-4D79-89DA-2C2EE3E5D91C}</ProjectGuid>
+    <ProjectGuid>{23396099-8435-4289-AB48-EB3ACD715407}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>K2.Testing.Automated.Framework</RootNamespace>
-    <AssemblyName>K2.Testing.Automated.Framework</AssemblyName>
+    <RootNamespace>K2.Utils</RootNamespace>
+    <AssemblyName>K2.Utils</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,52 +30,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="WebDriver, Version=3.5.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Selenium.WebDriver.3.5.1\lib\net40\WebDriver.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\K2DropDown.cs" />
-    <Compile Include="Controls\K2Picker.cs" />
-    <Compile Include="Controls\Tab.cs" />
-    <Compile Include="IClickable.cs" />
-    <Compile Include="IK2Container.cs" />
-    <Compile Include="IK2Form.cs" />
-    <Compile Include="IK2ItemView.cs" />
-    <Compile Include="IK2ListView.cs" />
-    <Compile Include="IK2View.cs" />
-    <Compile Include="IK2LayoutTable.cs" />
-    <Compile Include="ISingleValue.cs" />
-    <Compile Include="K2ContainerBase.cs" />
-    <Compile Include="K2FormBase.cs" />
-    <Compile Include="K2ItemViewBase.cs" />
-    <Compile Include="K2ListViewBase.cs" />
-    <Compile Include="K2Utils.cs" />
-    <Compile Include="K2LayoutTable.cs" />
+    <Compile Include="FedAuthHelper.cs" />
+    <Compile Include="Impersonation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utils\FedAuthHelper.cs" />
-    <Compile Include="Utils\Impersonation.cs" />
-    <Compile Include="Utils\Utils.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

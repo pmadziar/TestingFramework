@@ -33,7 +33,8 @@ namespace K2.Testing.Automated.Framework.Controls
             //object xxx = form.FindElements(By.XPath(xpathSelector));
             var tabs = form.WebDriver.FindElements(By.CssSelector(cssSelector));
             var tab = tabs.Single(x => x.Text.Equals(name));
-            tab.Click();
+            var a = tab.GetParent().GetParent();
+            a.Click();
         }
 
         public void DoubleClick()

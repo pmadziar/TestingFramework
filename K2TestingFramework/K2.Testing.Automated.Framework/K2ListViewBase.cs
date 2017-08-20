@@ -32,6 +32,11 @@ namespace K2.Testing.Automated.Framework
         {
             return this.FindElements(By.CssSelector("div.grid-toolbars a.toolbar-button")).Single(x => x.Text.Trim().Equals(name));
         }
+
+        protected IWebElement getRowAddNew()
+        {
+            return this.FindElement(By.CssSelector("div.grid-body > div.grid-body-content table.grid-content-table > tbody > tr.edit-template-row"));
+        }
     }
 
 }

@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.IE;
-using K2.AtonMartin.RLE.Testing.POM;
 using K2.AtonMartin.RLE.Testing.POM.Forms;
+using K2.Testing.Automated.Framework.Utils;
 
 namespace ZzzzTest01
 {
@@ -14,41 +11,56 @@ namespace ZzzzTest01
     {
         static void Main(string[] args)
         {
-            IWebDriver driver = new InternetExplorerDriver();
-            driver.Manage().Window.Maximize();
+            {
+                string domain = "DENALLIX";
+                string username = "Administrator";
+                string password = "K2pass!";
+                string formurl = "https://k2.denallix.com/Runtime/Runtime/Form/ERE__Administration__Form/";
 
-            //driver.Navigate().GoToUrl("https://k2.denallix.com/Runtime/Runtime/Form/ERE__Dashboard__Form/");
-            //System.Threading.Thread.Sleep(4000);
+                var cookie = FedAuthHelper.GetCookie(username, password, domain, formurl);
 
-            //ERE_Dashboard_Form form = new ERE_Dashboard_Form(driver);
+                ChromeOptions options = new ChromeOptions();
+                options.AddArgument("--incognito");
+                options.AddArguments("--start-maximized");
 
-            //System.Console.WriteLine(form.Header.Hidden);
-            //System.Console.WriteLine(form.Header.Collapsed);
+                IWebDriver driver = new ChromeDriver(options);
+                driver.Navigate().GoToUrl(formurl);
+                driver.Manage().Cookies.AddCookie(new OpenQA.Selenium.Cookie(cookie.Name, cookie.Value, cookie.Path, cookie.Expires));
 
-            //System.Console.WriteLine(form.Buttons.Hidden);
-            //System.Console.WriteLine(form.Buttons.Collapsed);
+                driver.Navigate().GoToUrl(formurl);
+                //Thread.Sleep(4000);
 
-            //System.Console.WriteLine(form.SearchFilter.Hidden);
-            //System.Console.WriteLine(form.SearchFilter.Collapsed);
+                ERE_Administration_Form administrationForm = new ERE_Administration_Form(driver);
+                Thread.Sleep(6000);
+                administrationForm.UserManagement.Click();
+                Thread.Sleep(400);
+                administrationForm.GroupMemberList.AddNew("Release Coodinator", "DENALLIX\\Greg");
+                Thread.Sleep(4000);
+                driver.Close();
+                driver.Dispose();
+            }
+            {
+                string domain = "DENALLIX";
+                string username = "Bob";
+                string password = "K2pass!";
+                string formurl = "https://k2.denallix.com/Runtime/Runtime/Form/ERE__Dashboard__Form/";
 
-            //System.Console.WriteLine(form.WorklistAll.Hidden);
-            //System.Console.WriteLine(form.WorklistAll.Collapsed);
+                var cookie = FedAuthHelper.GetCookie(username, password, domain, formurl);
 
-            //System.Console.WriteLine(form.WorklistUser.Hidden);
-            //System.Console.WriteLine(form.WorklistUser.Collapsed);
+                ChromeOptions options = new ChromeOptions();
+                options.AddArgument("--incognito");
+                options.AddArguments("--start-maximized");
 
-            //System.Console.WriteLine(form.SearchFilter.LayoutTable.GetCell(5, 1).Text);
+                IWebDriver driver = new ChromeDriver(options);
+                driver.Navigate().GoToUrl(formurl);
+                driver.Manage().Cookies.AddCookie(new OpenQA.Selenium.Cookie(cookie.Name, cookie.Value, cookie.Path, cookie.Expires));
 
-            driver.Navigate().GoToUrl("https://k2.denallix.com/Runtime/Runtime/Form/ERE__Administration__Form/");
-            //System.Threading.Thread.Sleep(4000);
+                driver.Navigate().GoToUrl(formurl);
+                Thread.Sleep(10000);
+                driver.Close();
+                driver.Dispose();
+            }
 
-            ERE_Administration_Form administrationForm = new ERE_Administration_Form(driver);
-            System.Threading.Thread.Sleep(4000);
-            administrationForm.UserManagement.Click();
-            System.Threading.Thread.Sleep(4000);
-            administrationForm.GroupMemberList.AddButton.Click();
-            driver.Close();
-            driver.Dispose();
         }
     }
 }
