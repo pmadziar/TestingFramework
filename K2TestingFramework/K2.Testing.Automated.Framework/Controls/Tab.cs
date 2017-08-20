@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace K2.Testing.Automated.Framework.Controls
 {
-    public class Tab : IClickable
+    public class K2Tab : IClickable
     {
-        private string name;
+        public readonly string Name;
         private IK2Form form;
 
         private string cssSelector
@@ -23,16 +23,16 @@ namespace K2.Testing.Automated.Framework.Controls
             }
         }
 
-        public Tab(IK2Form form, string name)
+        public K2Tab(IK2Form form, string name)
         {
             this.form = form;
-            this.name = name;
+            this.Name = name;
         }
         public void Click()
         {
             //object xxx = form.FindElements(By.XPath(xpathSelector));
             var tabs = form.WebDriver.FindElements(By.CssSelector(cssSelector));
-            var tab = tabs.Single(x => x.Text.Equals(name));
+            var tab = tabs.Single(x => x.Text.Equals(Name));
             var a = tab.GetParent().GetParent();
             a.Click();
         }

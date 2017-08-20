@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using K2.Testing.Automated.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
+using K2.Testing.Automated.Framework.Utils;
 
 namespace K2.Testing.Automated.Framework.Controls
 {
@@ -32,20 +33,11 @@ namespace K2.Testing.Automated.Framework.Controls
 
             var ddButton = inputControlDiv.FindElement(By.CssSelector("div.input-control-buttons > a"));
             ddButton.Click();
-            System.Threading.Thread.Sleep(500);
-            //new Actions(form.WebDriver).MoveToElement(inputControlDiv, 3,3).Perform();
-            //System.Threading.Thread.Sleep(4000);
-            //new Actions(form.WebDriver).Click().Perform();
-            //System.Threading.Thread.Sleep(10000);
-            //System.Threading.Thread.Sleep(500);
-            //new Actions(form.WebDriver).SendKeys(" ").Perform();
-            //System.Threading.Thread.Sleep(500);
-            //new Actions(form.WebDriver).SendKeys($"{text}\n\t").Perform();
-            System.Threading.Thread.Sleep(1000);
+            Helpers.WaitUntilDataLoads(2);
             var ulId = $"{inputControlDivId}_droplist";
             var ul = form.FindElement(By.Id(ulId));
-            ul.FindElements(By.TagName($"li")).ToList().ForEach(x => Console.WriteLine($"|{x.Text}|"));
-            var li = ul.FindElements(By.TagName($"li")).Single(x => x.Text.Trim() == text);
+            ul.FindElements(By.TagName($"li")).ToList().ForEach(x => System.Diagnostics.Debug.WriteLine($"|{x.Text}|", "Selenium Tests"));
+            var li = ul.FindElements(By.TagName($"li")).Single(x => x.Text.Trim().Replace('_', ' ') == text);
             li.FindElement(By.TagName("a")).Click();
         }
 

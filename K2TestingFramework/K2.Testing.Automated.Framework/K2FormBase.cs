@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using K2.Testing.Automated.Framework.Controls;
 
 namespace K2.Testing.Automated.Framework
 {
@@ -11,6 +12,9 @@ namespace K2.Testing.Automated.Framework
     {
         public K2FormBase(IWebDriver driver): base(driver, "body", driver)
         {
+            this.Tabs = new List<K2Tab>();
         }
+
+        public List<K2Tab> Tabs { get; private set; }
     }
 }
