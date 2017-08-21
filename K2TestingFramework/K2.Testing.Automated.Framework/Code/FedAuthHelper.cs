@@ -16,22 +16,31 @@ namespace K2.Testing.Automated.Framework.Utils
         private static readonly Dictionary<string, Cookie> cookieCache = new Dictionary<string, Cookie>();
         public static Cookie GetCookie(string username, string password, string domain, string formUrl)
         {
-            Cookie fedauth = null;
-            if(cookieCache.ContainsKey(username))
+            string samAccountName = username;
+            if (username.Contains('\\'))
             {
-                fedauth = cookieCache[username];
+                samAccountName = username.Split("\\".ToCharArray())[1].Trim();
+            }
+
+            string cacheKey = $"{domain}\\{samAccountName}";
+        
+            Cookie fedauth = null;
+            if(cookieCache.ContainsKey(cacheKey))
+            {
+                fedauth = cookieCache[cacheKey];
                 if(fedauth.Expired)
                 {
                     fedauth = null;
-                    cookieCache.Remove(username);
+                    cookieCache.Remove(cacheKey);
                 }
             }
 
             if(fedauth==null)
-            { 
-            LogonType logonType = LogonType.Interactive;
+            {
+                LogonType logonType = LogonType.Interactive;
 
-                using (Impersonation.LogonUser(domain, username, password, logonType))
+
+                using (Impersonation.LogonUser(domain, samAccountName, password, logonType))
                 {
                     WindowsIdentity identity = WindowsIdentity.GetCurrent(true);
 
@@ -47,7 +56,7 @@ namespace K2.Testing.Automated.Framework.Utils
                     Uri serverUri = new Uri(serverUrl);
 
                     CredentialCache credentials = new CredentialCache();
-                    NetworkCredential credential = new NetworkCredential(username, password, domain);
+                    NetworkCredential credential = new NetworkCredential(samAccountName, password, domain);
                     credentials.Add(serverUri, "Basic", credential);
                     credentials.Add(serverUri, "Digest", credential);
                     credentials.Add(serverUri, "Negotiate", credential);
@@ -128,7 +137,7 @@ namespace K2.Testing.Automated.Framework.Utils
 
                     response.Close();
                     response.Dispose();
-                    cookieCache.Add(username, fedauth);
+                    cookieCache.Add(cacheKey, fedauth);
                 }
             }
             return fedauth;
