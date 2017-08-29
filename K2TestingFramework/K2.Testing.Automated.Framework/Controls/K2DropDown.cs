@@ -28,12 +28,13 @@ namespace K2.Testing.Automated.Framework.Controls
         }
         public void SetValue(string text)
         {
-            var inputControlDiv = container.FindElements(By.CssSelector("div.dropdown-box"))[index];
+            var inputControlDivs = container.FindElements(By.CssSelector("div.dropdown-box"));
+            var inputControlDiv = inputControlDivs[index];
             var inputControlDivId = inputControlDiv.GetAttribute("id");
 
             var ddButton = inputControlDiv.FindElement(By.CssSelector("div.input-control-buttons > a"));
             ddButton.Click();
-            Helpers.WaitUntilDataLoads(2);
+            Helpers.WaitUntilDataLoads(1);
             var ulId = $"{inputControlDivId}_droplist";
             var ul = form.FindElement(By.Id(ulId));
             ul.FindElements(By.TagName($"li")).ToList().ForEach(x => System.Diagnostics.Debug.WriteLine($"|{x.Text}|", "Selenium Tests"));

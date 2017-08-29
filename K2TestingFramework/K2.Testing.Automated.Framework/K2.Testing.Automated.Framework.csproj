@@ -49,9 +49,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\K2Button.cs" />
     <Compile Include="Controls\K2DropDown.cs" />
+    <Compile Include="Controls\K2DatePicker.cs" />
     <Compile Include="Controls\K2Picker.cs" />
-    <Compile Include="Controls\Tab.cs" />
+    <Compile Include="Controls\K2RadioButtonList.cs" />
+    <Compile Include="Controls\K2Tab.cs" />
+    <Compile Include="Controls\K2TextBox.cs" />
     <Compile Include="IClickable.cs" />
     <Compile Include="IK2Container.cs" />
     <Compile Include="IK2Form.cs" />

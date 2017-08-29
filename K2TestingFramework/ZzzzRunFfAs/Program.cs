@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using K2.Testing.Automated.Framework.Utils;
+using System;
 
 namespace ZzzzRunFfAs
 {
@@ -8,8 +9,16 @@ namespace ZzzzRunFfAs
     {
         static void Main(string[] args)
         {
-            string username = @"DENALLIX\Johnny";
+            string username = @"DENALLIX\Administrator";
 
+            if (args.Length == 1)
+            {
+                username = args[0].Trim();
+            }
+            else
+            {
+                throw new ArgumentException("Usage: ZzzzRunFfAs username");
+            }
 
             string domain = "DENALLIX";
             string password = "K2pass!";
