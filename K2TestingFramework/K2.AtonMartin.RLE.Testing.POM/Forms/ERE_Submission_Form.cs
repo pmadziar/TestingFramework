@@ -16,6 +16,8 @@ namespace K2.AtonMartin.RLE.Testing.POM.Forms
     {
         #region Views/Panels
         public readonly ERE_ReleaseHeaderInformation_Item ReleaseHeaderInformation;
+        public readonly ERE_ReleaseDescription_Item ReleaseDescription;
+        public readonly ERE_BuyersSuppliers_Item BuyersAndSuppliers;
         #endregion
 
         #region Tabs
@@ -53,6 +55,8 @@ namespace K2.AtonMartin.RLE.Testing.POM.Forms
 
             #region Initialize Views/Panels
             this.ReleaseHeaderInformation = new ERE_ReleaseHeaderInformation_Item(this, "ERE_Submission_Form Area Item1");
+            this.ReleaseDescription = new ERE_ReleaseDescription_Item(this, "ERE_Submission_Form Area Item2");
+            this.BuyersAndSuppliers = new ERE_BuyersSuppliers_Item(this, "ERE_Submission_Form Area Item3");
             #endregion
         }
 

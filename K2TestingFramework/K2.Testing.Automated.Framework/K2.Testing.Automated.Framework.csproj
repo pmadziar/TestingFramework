@@ -52,8 +52,11 @@
     <Compile Include="Controls\K2Button.cs" />
     <Compile Include="Controls\K2DropDown.cs" />
     <Compile Include="Controls\K2DatePicker.cs" />
+    <Compile Include="Controls\K2MultiSelect.cs" />
     <Compile Include="Controls\K2Picker.cs" />
     <Compile Include="Controls\K2RadioButtonList.cs" />
+    <Compile Include="Controls\K2TextArea.cs" />
+    <Compile Include="Controls\K2RichText.cs" />
     <Compile Include="Controls\K2Tab.cs" />
     <Compile Include="Controls\K2TextBox.cs" />
     <Compile Include="IClickable.cs" />
@@ -63,6 +66,7 @@
     <Compile Include="IK2ListView.cs" />
     <Compile Include="IK2View.cs" />
     <Compile Include="IK2LayoutTable.cs" />
+    <Compile Include="IMultipleValues.cs" />
     <Compile Include="ISingleValue.cs" />
     <Compile Include="K2ContainerBase.cs" />
     <Compile Include="K2FormBase.cs" />
