@@ -33,9 +33,9 @@ namespace ZzzzTest01
 
                 ERE_Submission_Form_Test.test(driver);
 
-                Thread.Sleep(3000);
-                driver.Close();
-                driver.Dispose();
+                //Thread.Sleep(3000);
+                //driver.Close();
+                //driver.Dispose();
             }
         }
     }

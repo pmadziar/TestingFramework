@@ -20,23 +20,23 @@ namespace ZzzzTest01
             Helpers.WaitUntilDataLoads();
 
             ERE_Submission_Form form = new ERE_Submission_Form(driver);
-            Helpers.WaitUntilDataLoads(20);
-            form.SelectReleaseType("Prototype Part Release");
+            Helpers.WaitUntilDataLoads(6);
+            form.SelectReleaseType("Production Part Release - Post PR");
             Helpers.WaitUntilDataLoads(3);
-            form.ReleaseHeaderInformation.ReleaseTitle = "This is a test of release title";
+            form.ReleaseHeaderInformation.ReleaseTitle = "This is a test of release title 02";
             form.ReleaseHeaderInformation.LeadProgramme = "VH118";
             form.ReleaseHeaderInformation.FirstUseProgramme = "VH118";
             form.ReleaseHeaderInformation.BuildPhase = "X1";
             form.ReleaseHeaderInformation.PmtArea = "After Sales";
             form.ReleaseHeaderInformation.PmtLeader = "Chris Geier";
             form.ReleaseHeaderInformation.Urgent = "Yes";
-            form.ReleaseHeaderInformation.ProposedCmmDate = "10/09/2017";
-            form.ReleaseHeaderInformation.ProposedOrd = "12/09/2017";
+            form.ReleaseHeaderInformation.ProposedCmmDate = "14/09/2017";
+            form.ReleaseHeaderInformation.ProposedOrd = "15/09/2017";
             form.ReleaseDescription.WhatIsTheChange = "This is the change";
             form.ReleaseDescription.WhyThisChange = "Because this change is good";
             form.ReleaseDescription.PartNumber = "12233";
             form.ReleaseDescription.Description= "This is a description";
-            form.BuyersAndSuppliers.SelectAvailableBuyers(new List<string>() { "Chris Geier", "Bob Maggio" });
+            //form.BuyersAndSuppliers.SelectAvailableBuyers(new List<string>() { "Chris Geier", "Bob Maggio" });
         }
     }
 }

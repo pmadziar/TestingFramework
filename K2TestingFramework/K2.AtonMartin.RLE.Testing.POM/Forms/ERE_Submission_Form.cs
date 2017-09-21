@@ -64,6 +64,7 @@ namespace K2.AtonMartin.RLE.Testing.POM.Forms
         {
             if (!string.IsNullOrEmpty(releasetype))
             {
+                Helpers.WaitUntilDataLoads(3);
                 IWebElement iframe = WebDriver.FindElement(By.CssSelector("iframe.runtime-popup"));
                 this.WebDriver.SwitchTo().Frame(iframe);
                 this.WebDriver.FindElement(By.CssSelector($"label[title='{releasetype}']")).FindElement(By.CssSelector($"span.input-control-img")).Click();
